@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My First Handlebars Template</title>
+	<meta name="author" content="Quoniam">
+
+	<script src="js/jquery.js"></script>
+	<script src="js/handlebars.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+	<div id="content"></div>
+
+	<script type="text/x-handlebars-template" id="image-template">
+		<div>
+			<h1>{{title}}</h1>
+			<h3>{{author}}</h3>
+			<img src="{{src}}" alt=""/>
+		</div>
+	</script>
+
+	<script type="text/javascript">
+		var source = $("#image-template").html();
+		var template = Handlebars.compile(source);
+		var data = {
+		     src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/600px-The_Earth_seen_from_Apollo_17.jpg ", 
+		     title:"The Earth seen from Apollo 17",
+		     author:"Ed g2s"
+		};
+		var html = template(data);
+		$("#content").html(html);
+	</script>
+</body>
+</html>
